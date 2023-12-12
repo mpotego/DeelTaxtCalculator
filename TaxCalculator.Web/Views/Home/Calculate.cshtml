@@ -1,0 +1,44 @@
+﻿@model TaxCalculator.Model.Dto.CalculateRequestDto
+
+@{
+    ViewData["Title"] = "Calculate";
+}
+
+<h1>Calculate</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Calculate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PostalCode" class="control-label"></label>
+                <input asp-for="PostalCode" class="form-control" />
+                <span asp-validation-for="PostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+        @{
+            if (@TempData["Msg"] != null)
+            {
+                <script>
+                    alert('@TempData["msg"]')
+                </script>
+            }
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

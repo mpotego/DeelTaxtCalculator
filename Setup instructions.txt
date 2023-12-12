@@ -1,0 +1,11 @@
+1. Open the project on visual studion.
+2. On SQL Server create database with name "TaxCalculatorDB".
+3. Grab the databse connection string and paste in the config file on "TaxCalculatorDB": "ConnectionString".
+4. Set TaxCalculator.Backend as start up project.
+5. Go to "Package Manager Console".
+6. Set TaxCalculator.Db as default project.
+7. Execute command "update-database".
+8. After the successfully running the above command.
+9. Set mustiple start up projects as .Api and .Web
+10. Run the project 
+11. This will satrt both API and Web applications.

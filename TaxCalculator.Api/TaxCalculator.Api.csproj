@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Core\**" />
+    <Compile Remove="Database\**" />
+    <Compile Remove="LocalDatabase\**" />
+    <Compile Remove="Model\**" />
+    <Content Remove="Core\**" />
+    <Content Remove="Database\**" />
+    <Content Remove="LocalDatabase\**" />
+    <Content Remove="Model\**" />
+    <EmbeddedResource Remove="Core\**" />
+    <EmbeddedResource Remove="Database\**" />
+    <EmbeddedResource Remove="LocalDatabase\**" />
+    <EmbeddedResource Remove="Model\**" />
+    <None Remove="Core\**" />
+    <None Remove="Database\**" />
+    <None Remove="LocalDatabase\**" />
+    <None Remove="Model\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.25">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.25" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TaxCalculator.Core\TaxCalculator.Core.csproj" />
+    <ProjectReference Include="..\TaxCalculator.Model\TaxCalculator.Model.csproj" />
+  </ItemGroup>
+
+</Project>

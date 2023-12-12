@@ -1,0 +1,74 @@
+﻿@model IEnumerable<TaxCalculator.Model.Dto.CalculationResultDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Home - Calculation Results</h1>
+
+<p>
+    <a asp-action="Calculate">Add New Calculation</a>
+</p>
+<table class="table">
+    <thead>
+        <tr> 
+            <th>
+                Postal Code
+            </th>
+            <th>
+                Pay Amount
+            </th>
+            <th>
+                Tax Amount
+            </th> 
+            <th>
+                Taxt Type 
+            </th> 
+            <th>
+                Applied Tax
+            </th>
+            <th>
+                Date Created
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr> 
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxAmount)
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxtTypeName)
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.AppliedTax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>
+
+@{
+    if (@TempData["Msg"] != null)
+    {
+        <script>
+            alert('@TempData["msg"]')
+        </script>
+    }
+}
